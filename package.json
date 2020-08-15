@@ -1,0 +1,17 @@
+{
+  "name": "notedly",
+  "version": "1.0.0",
+  "description": "A notes app built using graph ql",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.16.1"
+  }
+}
