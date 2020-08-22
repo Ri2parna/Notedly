@@ -4,6 +4,18 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 // imports from .env file
 require('dotenv').config();
+// import the json web token
+const jwt = require('jsonwebtoken');
+// get the user info from a jsonwebtoken
+const getUser = token => {
+  if(token){
+    try {
+      return jwt.verify(token, process.env.JWT_SECRET);
+    } catch (e) {
+      throw new Error('Session Invalid');
+    }
+  }
+};
 
 // Local module exports
 const typeDefs = require('./schema');
@@ -21,8 +33,11 @@ db.connect(DB_HOST);
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: () => {
-        return { models };
+    context: ({req}) => {
+      const token = req.headers.authorization;
+      const user = getUser(token);
+      console.log(user);
+      return { models, user };
     }
 });
 // apply graphql middleware
