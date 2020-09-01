@@ -1,6 +1,6 @@
 const Mutation = require("./mutation");
 const Query = require("./query");
-const { GraphQLDatetime } = require("graphql-iso-date");
+const GraphQLDatetime = require("graphql-iso-date");
 const Note = require("./note");
 const User = require("./user");
 
