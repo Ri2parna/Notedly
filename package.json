@@ -17,6 +17,7 @@
         "bcrypt": "^5.1.0",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
+        "graphql": "^16.8.1",
         "graphql-depth-limit": "^1.1.0",
         "graphql-iso-date": "^3.6.1",
         "graphql-validation-complexity": "^0.4.1",
